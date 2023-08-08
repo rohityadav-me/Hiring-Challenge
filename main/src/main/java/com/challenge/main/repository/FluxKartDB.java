@@ -7,5 +7,5 @@ import com.challenge.main.entity.Contact;
 
 @Repository
 public interface FluxKartDB extends JpaRepository<Contact,Integer> {
-    
+    Contact findByPhoneNumber(String phoneNumber);
 }
