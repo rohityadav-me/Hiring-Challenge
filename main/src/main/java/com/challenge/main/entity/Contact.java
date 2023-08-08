@@ -1,4 +1,4 @@
-package com.challenge.entity;
+package com.challenge.main.entity;
 
 import java.time.LocalDateTime;
 
