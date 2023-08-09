@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 public class CaseHandlerService {
     private UserRequest userRequest;
     @Autowired
-    private OnlyEmail onlyEmail;
+    private OnlyEmailService onlyEmail;
     public PostResponse handleCaseAndProcess(){
         PostResponse postResponse = null;
         if(userRequest.getEmail()!=null && userRequest.getPhoneNumber()!=null){

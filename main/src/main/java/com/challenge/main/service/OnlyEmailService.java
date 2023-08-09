@@ -16,7 +16,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Service
 @Setter
-public class OnlyEmail {
+public class OnlyEmailService {
     @Autowired
     FluxKartDB db;
     private String email;
