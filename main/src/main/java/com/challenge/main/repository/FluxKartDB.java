@@ -17,6 +17,7 @@ public interface FluxKartDB extends JpaRepository<Contact,Integer> {
     Contact findByEmail(String email);
     List<Contact> findByLinkedId(Integer id);
     List<Contact> findAllByEmail(String email);
+    List<Contact> findAllByPhoneNumber(String phoneNumber);
     @Modifying
     @Transactional
     @Query(value = "TRUNCATE TABLE contact RESTART IDENTITY CASCADE",nativeQuery = true)

@@ -18,6 +18,8 @@ public class CaseHandlerService {
     private UserRequest userRequest;
     @Autowired
     private OnlyEmailService onlyEmail;
+    @Autowired
+    private OnlyPhoneNumberService onlyPhoneNumberService;
     public PostResponse handleCaseAndProcess(){
         PostResponse postResponse = null;
         if(userRequest.getEmail()!=null && userRequest.getPhoneNumber()!=null){
@@ -27,7 +29,9 @@ public class CaseHandlerService {
             onlyEmail.process();
             postResponse = onlyEmail.getPostResponse();
         }else{
-
+            onlyPhoneNumberService.setPhoneNumber(userRequest.getPhoneNumber());
+            onlyPhoneNumberService.process();
+            postResponse = onlyPhoneNumberService.getPostResponse();
         }
         return postResponse;
     }
