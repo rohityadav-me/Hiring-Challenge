@@ -24,7 +24,7 @@ public class FluxKartDBIntegrationTest {
 
    @BeforeEach
    public void deleteAllContactTableContentsBeforeRunningTest(){
-        db.deleteAll();
+        db.truncateAndRestartIdentity();
    }
    @Test
    @DisplayName("Test to check connection with database")
@@ -42,6 +42,6 @@ public class FluxKartDBIntegrationTest {
 
    @AfterEach
    public void deleteAllContactTableContents(){
-        db.deleteAll();
+        db.truncateAndRestartIdentity();
    }
 }
