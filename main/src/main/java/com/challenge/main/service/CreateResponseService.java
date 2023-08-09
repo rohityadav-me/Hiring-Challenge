@@ -21,6 +21,7 @@ public class CreateResponseService {
     private void processContact(){
         Optional<Contact> optional = db.findById(contact.getId());
         Contact repositoryContact = optional.get();
+        // System.out.println(repositoryContact);
         Contact primary;
         if(repositoryContact.getLinkPrecedence().equals("primary")){
             primary = repositoryContact;
