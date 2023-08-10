@@ -1,6 +1,6 @@
 package com.challenge.main;
 
-import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -131,7 +131,11 @@ class MainApplicationTests {
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally{
-			clearDB();
+			db.truncateAndRestartIdentity();
 		}
+	}
+	@AfterEach
+	public void test(){
+		clearDB();
 	}
 }
