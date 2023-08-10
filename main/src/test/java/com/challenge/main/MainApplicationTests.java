@@ -37,7 +37,7 @@ class MainApplicationTests {
 		UserRequest userRequest =  new UserRequest("test@gmail.com", "12345");
 		String url = "http://localhost:" + port + "/identify";
         ResponseEntity<String> response = restTemplate.postForEntity(url, userRequest,String.class);
-		Assertions.assertEquals(HttpStatus.ACCEPTED,response.getStatusCode());
+		Assertions.assertEquals(HttpStatus.OK,response.getStatusCode());
 		ObjectMapper objectMapper = new ObjectMapper();
 		String json = response.getBody();
 		try{

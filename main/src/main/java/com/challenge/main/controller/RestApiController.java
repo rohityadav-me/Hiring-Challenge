@@ -20,6 +20,6 @@ public class RestApiController {
     public ResponseEntity<PostResponse> identifyUser(@RequestBody UserRequest inputs){
         caseHandlerService.setUserRequest(inputs);
         PostResponse postResponse = caseHandlerService.handleCaseAndProcess();
-        return ResponseEntity.status(HttpStatus.ACCEPTED).body(postResponse);
+        return ResponseEntity.status(HttpStatus.OK).body(postResponse);
     }
 }
