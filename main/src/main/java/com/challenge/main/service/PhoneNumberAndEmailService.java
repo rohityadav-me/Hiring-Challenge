@@ -94,7 +94,11 @@ public class PhoneNumberAndEmailService {
                 createContact.setCreatedAt(LocalDateTime.now());
                 createContact.setUpdatedAt(LocalDateTime.now());
                 createContact.setLinkPrecedence("secondary");
-                createContact.setLinkedId(newContact.getId());
+                if(newContact.getLinkedId()==null)
+                     createContact.setLinkedId(newContact.getId());
+                else{
+                    createContact.setLinkedId(newContact.getLinkedId());
+                }
                 db.save(createContact);
             }
             responseService = new CreateResponseService(newContact, db);  
@@ -112,7 +116,11 @@ public class PhoneNumberAndEmailService {
                 createContact.setCreatedAt(LocalDateTime.now());
                 createContact.setUpdatedAt(LocalDateTime.now());
                 createContact.setLinkPrecedence("secondary");
-                createContact.setLinkedId(newContact.getId());
+                if(newContact.getLinkedId()==null)
+                     createContact.setLinkedId(newContact.getId());
+                else{
+                    createContact.setLinkedId(newContact.getLinkedId());
+                }
                 db.save(createContact);
             }
             responseService = new CreateResponseService(newContact, db);   

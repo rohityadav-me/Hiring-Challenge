@@ -39,9 +39,9 @@ public class CreateResponseService {
         List<Integer> secondaryContactIds = new ArrayList<>();
         List<Contact> secondaryContacts = db.findByLinkedId(primary.getId());
         for(Contact c : secondaryContacts){
-            if(c.getPhoneNumber()!=null && c.getPhoneNumber().equals(primary.getPhoneNumber())==false)
+            if(c.getPhoneNumber()!=null && c.getPhoneNumber().equals(primary.getPhoneNumber())==false && numbers.contains(c.getPhoneNumber())==false)
                 numbers.add(c.getPhoneNumber());
-            if(c.getEmail()!=null && c.getEmail().equals(primary.getEmail())==false)
+            if(c.getEmail()!=null && c.getEmail().equals(primary.getEmail())==false && emails.contains(c.getEmail())==false)
                 emails.add(c.getEmail());
             secondaryContactIds.add(c.getId());
         }
