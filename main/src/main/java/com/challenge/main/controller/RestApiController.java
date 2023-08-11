@@ -18,6 +18,7 @@ public class RestApiController {
    
     @PostMapping("/identify")
     public ResponseEntity<PostResponse> identifyUser(@RequestBody UserRequest inputs){
+        System.out.println(inputs);
         caseHandlerService.setUserRequest(inputs);
         PostResponse postResponse = caseHandlerService.handleCaseAndProcess();
         return ResponseEntity.status(HttpStatus.OK).body(postResponse);

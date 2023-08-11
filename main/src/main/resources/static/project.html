@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form and Text Box Example</title>
+    <title>Challenge</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -92,8 +92,11 @@ document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent the form from submitting normally
 
-        const email = document.getElementById('email').value;
-        const phoneNumber = document.getElementById('phoneNumber').value;
+        const emailInput = document.getElementById('email');
+        const phoneNumberInput = document.getElementById('phoneNumber');
+
+        const email = emailInput.value.trim();
+        const phoneNumber = phoneNumberInput.value.trim();
 
         if (!email && !phoneNumber) {
             alert('Please fill in either the email or phone number.');
@@ -112,10 +115,9 @@ document.addEventListener('DOMContentLoaded', function() {
             return; // Exit the function if validation fails
         }
         const data = {
-            email: email,
-            phoneNumber: phoneNumber
-        };
-
+        email: email || null, // Set to email or null if empty
+        phoneNumber: phoneNumber || null // Set to phoneNumber or null if empty
+    };
         fetch('/identify', {
             method: 'POST',
             headers: {
