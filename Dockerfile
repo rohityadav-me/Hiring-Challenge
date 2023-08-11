@@ -5,11 +5,11 @@ FROM gradle:6.8.3-jdk8 AS build
 WORKDIR /app
 
 # Copy the build.gradle and settings.gradle files to the container
-COPY build.gradle .
-COPY settings.gradle .
+COPY main/build.gradle .
+COPY main/settings.gradle .
 
 # Copy the source code
-COPY src/ src/
+COPY main/src/ src/
 
 # Build the application
 RUN gradle build --no-daemon
